@@ -1,4 +1,4 @@
-const API_KEY = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric'; // Ganti dengan API key kamu
+const API_KEY = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric'; 
 const canvas = document.getElementById('weatherCanvas');
 const ctx = canvas.getContext('2d');
 
