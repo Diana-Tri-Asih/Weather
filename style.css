@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: transparent;
+  overflow: hidden;
+  -webkit-app-region: drag;
+}
+
+.window {
+  width: 520px;
+  background: linear-gradient(180deg, #87CEEB 0%, #98D8E8 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Title Bar */
+.title-bar {
+  background: linear-gradient(180deg, #FF6B9D 0%, #FF5588 100%);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #FF4477;
+  -webkit-app-region: drag;
+}
+
+.title {
+  color: white;
+  font-size: 12px;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  -webkit-app-region: no-drag;
+}
+
+.btn-control {
+  width: 36px;
+  height: 36px;
+  border: 3px solid white;
+  background: #FF8FAB;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  transition: all 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.btn-control:hover {
+  background: #FFB3C6;
+  transform: scale(1.1);
+}
+
+.btn-control:active {
+  transform: scale(0.95);
+}
+
+/* Content */
+.content {
+  padding: 20px 20px 28px; 
+  -webkit-app-region: no-drag;
+}
+
+/* Weather Box */
+.weather-box {
+  background: white;
+  border: 5px solid #FF6B9D;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 0 #FF5588;
+}
+
+/* Canvas */
+#weatherCanvas {
+  display: block;
+  margin: 0 auto 20px;
+  background: linear-gradient(180deg, #E8F5FF 0%, #FFF5F8 100%);
+  border-radius: 8px;
+  border: 3px solid #FFB3C6;
+}
+
+/* Speech Bubble */
+.speech-bubble {
+  background: #FFF0F5;
+  border: 4px solid #FF6B9D;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin: 0 auto 20px;
+  max-width: 320px;
+  position: relative;
+  box-shadow: 0 4px 0 #FFB3C6;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 14px solid #FF6B9D;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #FFF0F5;
+}
+
+#weatherMessage {
+  font-size: 9px;
+  color: #FF6B9D;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Weather Info */
+.weather-info {
+  text-align: center;
+}
+
+.temp-display {
+  margin: 16px 0;
+}
+
+#temperature {
+  font-size: 36px;
+  color: #FF6B9D;
+  text-shadow: 3px 3px 0px rgba(255, 107, 157, 0.3);
+}
+
+.location-display {
+  margin: 12px 0;
+  font-size: 9px;
+  color: #666;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 3px dashed #FFB3C6;
+}
+
+.detail-item {
+  font-size: 9px;
+  color: #555;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 14px 16px;
+  background: white;
+  border: 4px solid #FF6B9D;
+  border-radius: 8px;
+  color: #FF6B9D;
+  font-size: 10px;
+  font-family: 'Press Start 2P', cursive;
+  outline: none;
+  box-shadow: 0 4px 0 #FF5588;
+}
+
+#cityInput::placeholder {
+  color: #FFB3C6;
+}
+
+#cityInput:focus {
+  border-color: #FF5588;
+  box-shadow: 0 4px 0 #FF5588, 0 0 0 2px rgba(255, 107, 157, 0.2);
+}
+
+#btnSearch {
+  width: 70px;
+  padding: 14px;
+  background: linear-gradient(180deg, #FFE5EC 0%, #FFD1DC 100%);
+  border: 4px solid #FF6B9D;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 0 #FF5588;
+}
+
+#btnSearch:hover {
+  background: linear-gradient(180deg, #FFF0F5 0%, #FFE5EC 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #FF5588;
+}
+
+#btnSearch:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #FF5588;
+}
+
+/* Refresh Button */
+#btnRefresh {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(180deg, #FFE5EC 0%, #FFD1DC 100%);
+  border: 4px solid #FF6B9D;
+  border-radius: 8px;
+  color: #FF6B9D;
+  font-size: 10px;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 0 #FF5588;
+}
+
+#btnRefresh:hover {
+  background: linear-gradient(180deg, #FFF0F5 0%, #FFE5EC 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #FF5588;
+}
+
+#btnRefresh:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #FF5588;
+}
+
+/* Loading Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.loading {
+  animation: bounce 1s infinite;
+}
