@@ -71,7 +71,7 @@ body {
 
 /* Content */
 .content {
-  padding: 20px 20px 28px; 
+  padding: 20px;
   -webkit-app-region: no-drag;
 }
 
